@@ -20,6 +20,7 @@ class Task(models.Model):
     description = models.TextField(verbose_name="Task description")
     status = models.CharField(verbose_name="Task status", max_length=10, choices=TASK_STATUS, default="Open")
     priority = models.CharField(verbose_name="Task priority", max_length=6, choices=TASK_PRIORITY)
+    owner = models.ForeignKey('auth.User', related_name='tasks', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
