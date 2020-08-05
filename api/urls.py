@@ -3,5 +3,6 @@ from django.urls import path
 from api import views
 
 urlpatterns = [
-    path('task-list/', views.TaskListView.as_view(), name="task-list"),
+    path('tasks/', views.TaskListView.as_view(), name="task-list"),
+    path('tasks/<int:pk>', views.TaskDetailView.as_view(), name="task-detail"),
 ]
